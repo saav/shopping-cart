@@ -30,9 +30,10 @@ include_once("config.php");
         {
 			echo '<div class="product" class="row">';
             echo '<div class="col-md-12">';
+            echo '<blockquote>';
             echo '<form method="post" action="cart_update.php">';
 			echo '<div class="product-thumb"><img src="images/'.$obj->product_img_name.'"></div>';
-            echo '<div class="product-content"><h3>'.$obj->product_name.'</h3>';
+            echo '<div class="product-content""><h2 style="text-align:center;font-weight:bold">'.$obj->product_name.'</h2>';
             echo '<div class="product-desc">'.$obj->product_desc.'</div>';
             echo '<div class="product-info">';
 			echo 'Price '.$currency.$obj->price.' | ';
@@ -43,6 +44,7 @@ include_once("config.php");
             echo '<input type="hidden" name="type" value="add" />';
 			echo '<input type="hidden" name="return_url" value="'.$current_url.'" />';
             echo '</form>';
+            echo '</blockquote>';
             echo '</div>';
             echo '</div>';
         }

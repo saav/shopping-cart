@@ -142,7 +142,7 @@ if(isset($_GET["token"]) && isset($_GET["PayerID"]))
 	$paypal= new MyPayPal();
 	$httpParsedResponseAr = $paypal->PPHttpPost('DoExpressCheckoutPayment', $padata, $PayPalApiUsername, $PayPalApiPassword, $PayPalApiSignature, $PayPalMode);
 	
-	//Check if everything went ok..
+	//Everythin OK!! - ??
 	if("SUCCESS" == strtoupper($httpParsedResponseAr["ACK"]) || "SUCCESSWITHWARNING" == strtoupper($httpParsedResponseAr["ACK"])) 
 	{
 
@@ -159,8 +159,7 @@ if(isset($_GET["token"]) && isset($_GET["PayerID"]))
 					'You need to manually authorize this payment in your <a target="_new" href="http://www.paypal.com">Paypal Account</a></div>';
 				}
 
-				// we can retrive transection details using either GetTransactionDetails or GetExpressCheckoutDetails
-				// GetTransactionDetails requires a Transaction ID, and GetExpressCheckoutDetails requires Token returned by SetExpressCheckOut
+				// GetExpressCheckoutDetails requires Token returned by SetExpressCheckOut
 				$padata = 	'&TOKEN='.urlencode($token);
 				$paypal= new MyPayPal();
 				$httpParsedResponseAr = $paypal->PPHttpPost('GetExpressCheckoutDetails', $padata, $PayPalApiUsername, $PayPalApiPassword, $PayPalApiSignature, $PayPalMode);
