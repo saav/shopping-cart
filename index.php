@@ -7,10 +7,14 @@ include_once("config.php");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Shopping Cart</title>
+<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
 <link href="style/style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
 </head>
 
 <body>
+<div class="container">    
 <div id="products-wrapper">
     <h1>Products</h1>
     <div class="products">
@@ -24,7 +28,8 @@ include_once("config.php");
         //fetch results as objects
         while($obj = $results->fetch_object())
         {
-			echo '<div class="product">'; 
+			echo '<div class="product" class="row">';
+            echo '<div class="col-md-12">';
             echo '<form method="post" action="cart_update.php">';
 			echo '<div class="product-thumb"><img src="images/'.$obj->product_img_name.'"></div>';
             echo '<div class="product-content"><h3>'.$obj->product_name.'</h3>';
@@ -38,6 +43,7 @@ include_once("config.php");
             echo '<input type="hidden" name="type" value="add" />';
 			echo '<input type="hidden" name="return_url" value="'.$current_url.'" />';
             echo '</form>';
+            echo '</div>';
             echo '</div>';
         }
     
@@ -75,6 +81,6 @@ if(isset($_SESSION["products"]))
 </div>
     
 </div>
-
+</div>
 </body>
 </html>

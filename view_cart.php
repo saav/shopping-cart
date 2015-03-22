@@ -7,10 +7,15 @@ include_once("config.php");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
-<link href="style/style.css" rel="stylesheet" type="text/css"></head>
+<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+<link href="style/style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+</head>
+
 <body>
 <div id="products-wrapper">
- <h1>View Cart</h1>
+ <h1 style="text-align:center">View Cart</h1>
  <div class="view-cart">
  	<?php
     $current_url = base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
